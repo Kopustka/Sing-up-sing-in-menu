@@ -1,44 +1,27 @@
+
 def checking_correctness_of_password(word):
-    if any(char.isupper() for char in word):
-        pass
-    else:
-        print('ОШИБКА:должна быть хобы одна заглавная буква')
-        return False
 
-    if any(char.isnumeric() for char in word):
-        pass
-    else:
-        print('ОШИБКА:должна быть хотя бы одна цифра')
-        return False
+    if not any(char.isupper() for char in word):
+        return False, 'ОШИБКА: должна быть хотя бы одна заглавная буква'
 
-    if any(not char.isalnum() for char in word):
-        pass
-    else:
-        print('ОШИБКА:должен быть хотя бы один спец-символ')
-        return False
+    if not any(char.isnumeric() for char in word):
+        return False, 'ОШИБКА: должна быть хотя бы одна цифра'
 
-    if len(word) <= 20 and len(word) >= 8:
-        pass
-    else:
-        print('ОШИБКА:пароль должег быть больше 8 и меньше 20 символов')
-        return False
+    if not any(not char.isalnum() for char in word):
+        return False, 'ОШИБКА: должен быть хотя бы один спец-символ'
 
-    return word
+    if not (8 <= len(word) <= 20):
+        return False, 'ОШИБКА: пароль должен быть больше 8 и меньше 20 символов'
 
+    return True, ''
 
 
 def сhecking_correctness_of_login(word):
-    if word.isalnum():
-        pass
-    else:
-        print('ОШИБКА:вы логине могут быть только буквы и цифры')
-        return False
 
-    if len(word) <= 20 and len(word) >= 8:
-        pass
-    else:
-        print('ОШИБКА:логин должег быть больше 8 и меньше 20 символов')
-        return False
+    if not word.isalnum():
+        return False, 'ОШИБКА: в логине могут быть только буквы и цифры'
 
-    return word
+    if not (8 <= len(word) <= 20):
+        return False, 'ОШИБКА: логин должен быть больше 8 и меньше 20 символов'
 
+    return True, ''

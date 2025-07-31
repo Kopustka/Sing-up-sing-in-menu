@@ -11,7 +11,8 @@ class User:
 
     @staticmethod
     def logining(User_name, User_password):
-        user_data_login(User_name, User_password)
+        success = user_data_login(User_name, User_password)
+        return success
 
 
     @staticmethod

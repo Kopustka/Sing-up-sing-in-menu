@@ -67,18 +67,22 @@ def user_data_login(User_name, User_password):
                 (User_name, User_password)
             )
 
-            print(f'{cursor.fetchall()}')
+            a = cursor.fetchall()
+            print(f'а = {a}')
+
+            if not a:
+                print('не удалось залогиниться')
+                return False
+            else:
+                print('login успешен')
+                return True
+
 
             cursor.execute(
                 'SELECT * FROM users;'
             )
-            a = cursor.fetchall()
-            print(f'{a}')
 
-            if not a:
-                print('не удалось залогиниться')
-            else:
-                print('login успешен')
+            print(f'{cursor.fetchall()}')
 
 
     except Exception as ex:
