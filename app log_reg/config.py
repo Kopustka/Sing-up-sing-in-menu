@@ -1,0 +1,5 @@
+host = 'localhost'
+user = 'postgres'
+password = 'viudfb43890a0_(423hja+'
+db_name = 'reg_log_data'
+port='5432'
